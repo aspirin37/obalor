@@ -1,28 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="container">
+      <tree :node="config" />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import Tree from '@/components/Tree.vue';
+import { mapState, mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    Tree,
+  },
+  data: () => ({
+    isModalShown: false,
+  }),
+  computed: {
+    ...mapState(['dimensions', 'config']),
+    ...mapGetters(['userDimensions']),
+  },
+  created() {
+    this.getConfig();
+    this.getDimensions();
+  },
+  methods: {
+    ...mapActions(['getConfig', 'getDimensions']),
   },
 };
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style lang="scss"></style>
