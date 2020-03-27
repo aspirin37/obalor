@@ -8,19 +8,15 @@
 
 <script>
 import Tree from '@/components/Tree.vue';
-import { mapState, mapActions, mapGetters } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'App',
   components: {
     Tree,
   },
-  data: () => ({
-    isModalShown: false,
-  }),
   computed: {
-    ...mapState(['dimensions', 'config']),
-    ...mapGetters(['userDimensions']),
+    ...mapState(['config']),
   },
   created() {
     this.getConfig();
