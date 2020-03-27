@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import config from '../../config.json';
-import dimensions from '../../dimensions.json';
+import config from '../../configs/config.json';
+import dimensions from '../../configs/dimensions.json';
 
 Vue.use(Vuex);
 
